@@ -1,0 +1,114 @@
+$board-height: 22rem;
+$color-bg: #282828;
+$color-red: #D41C1C;
+$number-off: #606161;
+$number-on: #FBFBFA;
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@500&family=Black+Ops+One&display=swap');
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	outline: none;
+}
+html {	font-size: 10px; }
+
+body {
+	background-color: $color-bg;
+	font-family: 'Baloo Paaji 2', cursive;
+}
+
+#container, #controls{
+	width:1000px; 
+	height: $board-height;
+	margin:0 auto;
+	position: relative;	
+}
+
+#board{
+	width: 850px;
+	float: left;
+}
+#controls{
+	text-align: center;
+}
+
+.letter, .number {
+	font-size: 2.5rem;
+	line-height: 3.5rem;
+	height: 4rem;
+	width: 4rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+.letter{
+	font-size: 3rem;
+}
+.letter, #last_letter{
+	color: $color-red;
+}
+
+.number{
+	border: none;
+	background-color: $color-bg;
+	color: $number-off;
+	cursor: pointer;
+	margin: 0 0.5rem;
+}
+.number:disabled{
+	color: $number-on; 
+	cursor: not-allowed;
+}
+.number.latest:disabled{
+	animation: flash 1s steps(1) 6 forwards;
+}
+
+#last{
+	float:right;
+}
+.ball{
+	background-color: #fff;;
+	height: 15rem;
+	width: 15rem;
+	border-radius: 50%;
+	text-align: center;
+}
+#last .ball {
+	display: block; 
+	margin: auto;
+	padding: 3rem 0;
+	margin-top: 2.8rem; 
+}
+#last > .ball > div{
+	background-color: transparent;
+	font-size: 7.5rem;
+	height: 9.5rem;
+	width: 5rem;
+}
+#last > .ball > .number{
+	width: 7rem;
+}
+
+button.control{
+	background-color: $color-red;
+	border: none;
+	color: $number-on; 
+	font-size: 2rem;
+	font-family: 'Black Ops One', cursive;
+	padding: .7rem 1.7rem;
+	border-radius: .5rem;
+}
+button.control.small{
+	font-size: 1.2rem;
+	padding: .4rem;
+	float: right;
+}
+@keyframes flash{
+	0% {
+		color: $number-on; 
+	}
+	50% {
+		color: $number-off; 
+	}
+}
